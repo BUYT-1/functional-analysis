@@ -95,7 +95,7 @@
  Теперь примеры предгильбертовых пространств
  \begin{example}
     $F$ --- финитные последовательности. \\
-    $(x,y) \in F, (x,y) = \sum^\infty_{j=1} x_j \overline{y_j}$ (конечная сумма $F \subset l^2, \norm{x} = \sqrt{\sum^N_{j=1} \abs{x_j}^2}), x_{N+k} = 0 \: k \in \bN$.
+    $(x,y) \in F, (x,y) = \sum^\infty_{j=1} x_j \overline{y_j}$ (конечная сумма $F \subseteq l^2, \norm{x} = \sqrt{\sum^N_{j=1} \abs{x_j}^2}), x_{N+k} = 0 \: k \in \bN$.
     $F$ --- предгильбертово (не полное)
  \end{example}
 
@@ -112,20 +112,20 @@
  \end{example}
 
  \begin{example}
-    $\Rho, \Rho \subset C[a,b]$. $(p,q) = \int^b_a p(x) \overline{q(x)} dx$ --- предгильбертово, пополнением $\Rho$ будет $L^2(a,b)$ по мере Лебега.
+    $\Rho, \Rho \subseteq C[a,b]$. $(p,q) = \int^b_a p(x) \overline{q(x)} dx$ --- предгильбертово, пополнением $\Rho$ будет $L^2(a,b)$ по мере Лебега.
  \end{example}
 
  \begin{definition}
     $H$ --- гильбертово,
     \begin{enumerate}
         \item $x,y \in H, (x,y) = 0$, то $x \perp y $ ($x$ ортогонален $y$)
-        \item $M \subset H, M$ --- подмножество. Ортогональным дополнением к нему будем называть \\
+        \item $M \subseteq H, M$ --- подмножество. Ортогональным дополнением к нему будем называть \\
         \[ M^\perp  = \seq{y \in H: (y,x) = 0 \: \forall x \in M }\]
     \end{enumerate}
  \end{definition}
 
 \begin{property}
-    $M \subset H$ --- гильбертово $\Rightarrow M^\perp$ --- замкнутое подпространство
+    $M \subseteq H$ --- гильбертово $\Rightarrow M^\perp$ --- замкнутое подпространство
 \end{property}
 
 \begin{proof}
@@ -140,13 +140,13 @@
 В гильбертовом пространстве всегда существует элемент наилучшего приближения, он ещё и единственный!
 
 \begin{theorem}[о существовании элемента наилучшего приближения в гильбертовом пространстве]
-    $H$ --- гильбертово, $M \subset H, M$ --- замкнутое подпространство, $\forall x \in H \Rightarrow \: \exists! z \in M : \norm{x-z} = \min_{h \in M} \norm{x-h} = \rho(x,M)$
+    $H$ --- гильбертово, $M \subseteq H, M$ --- замкнутое подпространство, $\forall x \in H \Rightarrow \: \exists! z \in M : \norm{x-z} = \min_{h \in M} \norm{x-h} = \rho(x,M)$
 \end{theorem}
 
 Для произвольного метрического пространства мы доказывали, что если есть конечномерное подпространство, то элемент существует. Доказательство начнём с простой леммы.
 
 \begin{lemma}
-    $H$ --- гильбертово, замкнутое подпространство $M \subset H$. $x \in H \setminus M, \: u,v \in M, \: d = \inf_{h \in M} \norm{x-h} $
+    $H$ --- гильбертово, замкнутое подпространство $M \subseteq H$. $x \in H \setminus M, \: u,v \in M, \: d = \inf_{h \in M} \norm{x-h} $
     \[ \Rightarrow \norm{u-v}^2 \leq 2(\norm{u-x}^2 + \norm{v-x}^2) - 4d^2 \]
 \end{lemma}
 \begin{proof}
@@ -176,7 +176,7 @@
 \end{proof}
 
 \begin{theorem}[о проекции на подпространство]
-    $H$ --- гильбертово, $M \subset H$, $M$ --- замкнутое подпространство 
+    $H$ --- гильбертово, $M \subseteq H$, $M$ --- замкнутое подпространство 
     \[ \forall x \in X \: \exists! z,w : x = z + w, z \in M, w \in M^\perp \]
 \end{theorem}
 
@@ -318,7 +318,7 @@
 \end{gather*}
 
 \begin{corollary}[ортогональный оператор на конечномерное подпространство]
-    $H$ ---  гильбертово, подпространство $M \subset H, \dim M = n, n \in \bN$
+    $H$ ---  гильбертово, подпространство $M \subseteq H, \dim M = n, n \in \bN$
     \begin{gather*}
         \seq{e_j}^n_{j=1} \text{ --- ортонормированный базис} \\
         (e_j, e_k) = \begin{cases}
@@ -431,7 +431,7 @@ Cейчас выясним, когда неравенство превращае
         x \in H, x \in \overline{\calL \seq{e_n}^\infty_{n=1}}, \text{ пусть } \varepsilon > 0 \\
         \exists y = \sum^n_{k=1} \alpha_k e_k, \norm{x-y} < \varepsilon \\
         L_n = \calL \seq{e_k}^n_{k=1} \Rightarrow \rho(x, L_n) < \varepsilon \quad P_{L_n}(x) = \underbrace{\sum^n_{j=1} (x,e_j) e_j}_{\coloneqq s_n} \\
-        \Rightarrow \norm{x - s_n} \leq \norm{x-y} < \varepsilon \quad L_n \subset L_{n+1} \Rightarrow \\
+        \Rightarrow \norm{x - s_n} \leq \norm{x-y} < \varepsilon \quad L_n \subseteq L_{n+1} \Rightarrow \\
         \norm{x - S_{n+1}} \leq \norm{x - S_n} < \varepsilon \Rightarrow \\
         \forall m \geq n \: \norm{x-S_m} < \varepsilon \Rightarrow \liml_{n \to \infty} S_n = x \\
     \end{gather*}
@@ -465,7 +465,7 @@ Cейчас выясним, когда неравенство превращае
     \end{gather*}
 \end{example}
 
-Упражнение: $c = \seq{x = \seq{x_n}^\infty_{n=1}, \: \exists \liml_{n \to \infty} x_n = x_0} \subset l^\infty$. Что тут будет базисом?
+Упражнение: $c = \seq{x = \seq{x_n}^\infty_{n=1}, \: \exists \liml_{n \to \infty} x_n = x_0} \subseteq l^\infty$. Что тут будет базисом?
 
 \begin{remark}
     Если в $(X, \norm{\cdot})$ есть базис, то $X$ --- сепарабельно.

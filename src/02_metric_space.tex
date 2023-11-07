@@ -6,32 +6,42 @@
 самым рабочим. А компакт~--- вещь очень полезная. Компакты в гигантских пространствах напоминают компакты в $\bR^n$ или в $\bC^n$ и обладают теми же полезными свойствами.
 
 \begin{definition}[Метрика]
-    $X$~--- множество. $\rho: X \times X \rightarrow \bR$, $\rho$~--- \textbf{метрика}, если при $\forall x \in X, \: \forall y \in X, \: \forall z \in X$ она обладает следующими свойствами 
+    $X\text{~--- множество}, \rho: X \times X \rightarrow \bR$
+
+    $\rho$~--- \textbf{метрика} $\Leftrightarrow$
     \begin{enumerate}
-        \item $\rho(x,y) \geq 0 \land (\rho(x,y) = 0 \Leftrightarrow x = y)$
-        \item $\rho(y,x) = \rho(x,y)$
-        \item $\rho(x,z) \leq \rho(x,y) + \rho(y,z)$
+        \item $\forall x \in X \forall y \in X (\rho(x,y) \geq 0 \land (\rho(x,y) = 0 \iff x = y))$
+        \item $\forall x \in X \forall y \in X \rho(y,x) = \rho(x,y)$
+        \item $\forall x \in X \forall y \in X \forall z \in X \rho(x,z) \leq \rho(x,y) + \rho(y,z)$
     \end{enumerate}
 \end{definition}
 
 Введём стандартное обозначение открытого шара. $x \in X, r > 0$
 
-$B_r(x) = \{y \in X: \rho(x,y) < r \}$~--- шар с радиусом $r$.
+$B_r(x) = \{y \in X | \rho(x,y) < r \}$~--- шар с радиусом $r$.
 $ \{B_r(x) \}_{r > 0}$~--- база окрестности в точке $x$.
 
-$G$~--- открытое, если $\forall x \in G \, \exists r > 0 B_r(x) \subset G$.
+$G$~--- открытое $\Leftrightarrow \forall x \in G \, \exists r > 0 B_r(x) \subseteq G$.
 
-$F \text{~--- замкнутое} \Leftrightarrow F \subset X \land X \setminus F\text{~--- открытое}$.
+$F \text{~--- замкнутое} \Leftrightarrow F \subseteq X \land X \setminus F\text{~--- открытое}$.
 
 В метрическом пространстве удобно характеризовать замкнутое множества с помощью последовательностей. Вспомним, что такое сходящаяся последовательность.
 
-$\{x_n\}_{n=1}^\infty\text{~--- последовательность}$ и $\forall n \in \bN x_n \in X \land \liml_{n \to \infty} x_n = x_0 \Leftrightarrow \liml_{n \to \infty} \rho(x_n, x_0) = 0$
+\begin{definition}
+$\{x_n\}_{n=1}^\infty\text{~--- последовательность в } X$
 
-$(X, \rho)\text{~--- метрическое пространство} \Rightarrow (F$~--- замкнутое $\Leftrightarrow$ $\{x_n\}_{n=1}^\infty$~--- последовательность $\land \forall n \in \bN \: x_n \in F$ и $(\liml_{n \to \infty } x_n = x_0 \Rightarrow x_0 \in F))$
+\[\liml_{n \to \infty} x_n = x_0 \Leftrightarrow \liml_{n \to \infty} \rho(x_n, x_0) = 0\]
+\end{definition}
+
+\begin{theorem}
+$(X, \rho)\text{~--- метрическое пространство}$
+
+$F$~--- замкнутое $\Leftrightarrow$ $\{x_n\}_{n=1}^\infty$~--- последовательность в $F \implies (\liml_{n \to \infty } x_n = x_0 \implies x_0 \in F)$
+\end{theorem}
 
 
 \begin{definition}[Фундаментальная последовательность]
-    $\{x_n\}^\infty_{n=1} \text{~--- фундаментальная} \Leftrightarrow \: \forall \varepsilon > 0 \: \exists N \in \bN \: \forall n \in \bN  \: \forall m \in \bN\: ((n > N \land m > N) \Rightarrow \rho(x_n, x_m) < \varepsilon) \Leftrightarrow \liml_{n,m \to \infty} \rho(x_n,x_m) = 0 $
+    $\{x_n\}^\infty_{n=1} \text{~--- фундаментальная} \Leftrightarrow \forall \varepsilon > 0 \exists N \in \bN \forall n \in \bN \forall m \in \bN ((n > N \land m > N) \implies \rho(x_n, x_m) < \varepsilon) \Leftrightarrow \liml_{n,m \to \infty} \rho(x_n,x_m) = 0 $
 \end{definition}
 
 
@@ -41,7 +51,7 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 
 
 \begin{definition}[Полное метрическое пространство]
-    $(X, \rho)$~--- полное, если все фундаментальные последовательности имеют предел, лежащий в $X$
+    $(X, \rho)$~--- полное $\Leftrightarrow$ все фундаментальные последовательности имеют предел, лежащий в $X$
 \end{definition}
 
 Почему хорошо жить в полном метрическом пространстве?
@@ -49,9 +59,12 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 \begin{remark}[о пользе полноты]
     $F: X \rightarrow \bR, (X,\rho)$~--- метрическое пространство, $F$~--- непрерывная.
 
-    Стоит задача найти $x_0 \in X$ т.ч. $F(x_0) = 0$. \\
-    Алгоритм: $\{x_n\}^\infty_{n=1}, \liml_{n \to \infty} F(x_n) = 0, \liml_{n, m \to \infty} \rho(x_n, x_m) = 0$
-    Если $(X, \rho)$~--- полное, то $\liml_{n \to \infty} x_n = x_0, F(x_0) = 0$.
+    Стоит задача найти $x_0 \in X$ т.ч. $F(x_0) = 0$
+
+    Положим, есть алгоритм, который порождает последовательность $\seq{x_n}^\infty_{n=1}, \liml_{n \to \infty} F(x_n) = 0, \liml_{n, m \to \infty} \rho(x_n, x_m) = 0$.
+
+    Тогда если $(X, \rho)$~--- полное, то $\liml_{n \to \infty} x_n = x_0, F(x_0) = 0$.
+
     А если нет, то из наших вычислений вообще ничего не следует, возможно, решения вообще нет.
 \end{remark}
 
@@ -70,30 +83,29 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 Потом приведем примеры поинтереснее. Кстати, древние греки пришли в ужас, когда узнали, что $\bQ$~--- неполное.
 
 \begin{definition}[ограниченное множество]
-    $(X,\rho)\text{~--- метрическое пространство}, A \subset X, A$~--- ограниченное, если 
-    \[ \exists R > 0 \: \exists x_0 \in X : A \subset B_R(x_0) \]
+    $(X,\rho)\text{~--- метрическое пространство}, A \subseteq X, A$~--- ограниченное, если 
+    \[ \exists R > 0 \exists x_0 \in X A \subseteq B_R(x_0) \]
 \end{definition}
 
 \begin{theorem}[Свойства фундаментальных последовательностей]
 \label{theo:cauchy-seq-properties}
-    $(X,\rho)$~--- метрическое пространство, $\{x_n\}^\infty_{n=1}$~--- фундаментальная последовательность, тогда выполняется:
+    $(X,\rho)$~--- метрическое пространство, $\{x_n\}^\infty_{n=1}$~--- фундаментальная последовательность $\Rightarrow$
     \begin{enumerate}
-        \item $\{x_n\}^\infty_{n=1}$~--- ограниченная, т.е. $\exists R > 0 \: \exists x_0 \in X \: \forall n \in \bN \, x_n \in B_R(x_0)$
-        \item $\exists \{x_{n_k}\}^\infty_{k=1}\text{~--- подпоследовательность } \Rightarrow (\exists a \in X \liml_{k \to \infty} x_{n_k} = a \Rightarrow \exists a \in X \liml_{n \to \infty} x_n = a = \liml_{k \to \infty} x_{n_k}) $
-        \item $\{ \varepsilon_k \}_{k=1}^\infty$~--- произвольная последовательность действительных чисел, $\forall k \in \bN \: \varepsilon_k > 0 \Rightarrow \exists \{x_{n_k}\}^\infty_{k=1}$~--- подпоследовательность $\forall j \in \bN \: (j > k \Rightarrow \rho(x_{n_k}, x_{n_j}) < \varepsilon_k)$
+        \item $\{x_n\}^\infty_{n=1}$~--- ограниченная, т.е. $\exists R > 0 \, \exists x_0 \in X \, \forall n \in \bN \, x_n \in B_R(x_0)$
+        \item $\{x_{n_k}\}^\infty_{k=1}\text{~--- подпоследовательность } \Rightarrow (\exists a \in X \liml_{k \to \infty} x_{n_k} = a \implies \exists a \in X \liml_{n \to \infty} x_n = a = \liml_{k \to \infty} x_{n_k}) $
+        \item $\{ \varepsilon_k \}_{k=1}^\infty$~--- произвольная последовательность в $\bR, \forall k \in \bN \varepsilon_k > 0 \Rightarrow \exists \{x_{n_k}\}^\infty_{k=1}$~--- подпоследовательность $\forall j \in \bN (j > k \implies \rho(x_{n_k}, x_{n_j}) < \varepsilon_k)$
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}[1 утверждение]
-    Возьмём $\varepsilon = 1$, тогда из фундаментальности $\exists N \: \forall n \in \bN \: (n > N \Rightarrow \rho (x_n, x_N) < 1)$.
+    Возьмём $\varepsilon = 1$, тогда из фундаментальности $\exists N \in \bN \forall n \in \bN (n > N \implies \rho (x_n, x_N) < 1)$.
 
-    Возьмём $R = \max \{ \rho(x_1, x_N), \ldots, \rho(x_{N-1},x_{N}) \} + 1$. Единичка на всякий случай.
+    Возьмём $R = \max \{ \rho(x_1, x_N), \ldots, \rho(x_{N-1},x_{N}) \} + 1$.
         
-    Тогда $\forall n \in \bN \: x_n \in B_R(x_N)$.
-\end{proof}  
-
+    Тогда $\forall n \in \bN x_n \in B_R(x_N)$.
+\end{proof}
 \begin{proof}[2 утверждение]
-    Возьмём $\varepsilon > 0$, тогда по фундаментальности $\exists N  \: \forall n \in \bN  \: \forall m \in \bN \: ((\textcolor{blue}{\underline{n > N}} \, \land \, m > N) $ $\Rightarrow \underline{\rho(x_n, x_m)} < \varepsilon)$. Возьмём это $N$.
+    Возьмём $\varepsilon > 0$, тогда по фундаментальности $\exists N \in \bN \forall n \in \bN \forall m \in \bN ((\textcolor{blue}{\underline{n > N}} \land  m > N) $ $\implies \underline{\rho(x_n, x_m)} < \varepsilon)$. Возьмём это $N$.
 
     $\exists a \liml x_{n_k} = a \Rightarrow \: \exists n_k (\rho(x_{n_k}, a) < \varepsilon \land \textcolor{blue}{\underline{n_k > N}})$. Возьмём это $n_k$.
 
@@ -102,16 +114,16 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 \begin{proof}[3 утверждение]
     Докажем по индукции:
 
-    $\varepsilon_1: \exists n_1 \forall n \in \bN \forall m \in \bN ((n > n_1 \land m > n) \Rightarrow \rho(x_m,x_n) < \varepsilon_1)$. Выберем $n_1$, тогда $\forall m \in \bN (m > n_1 \Rightarrow \rho(x_m, x_{n_1}) < \varepsilon_1)$.
+    $\varepsilon_1: \exists n_1 \forall n \in \bN \forall m \in \bN ((n > n_1 \land m > n) \implies \rho(x_m,x_n) < \varepsilon_1)$. Выберем $n_1$, тогда $\forall m \in \bN (m > n_1 \implies \rho(x_m, x_{n_1}) < \varepsilon_1)$.
 
-    $\varepsilon_k:$ по индукции выбрали $n_1, \ldots, n_{k-1}$, $k \geq 2$. $\forall j \in ( 1 \ldots k-1 ) \forall m \in \bN (m > n_j \Rightarrow \rho (x_m, x_{n_j}) < \varepsilon_j)$.
-    Из фундаментальности исходной последовательности $\exists n_k (n_k > n_{k-1} \land \forall m \in \bN (m > n_k \Rightarrow \rho (x_m, x_{n_k}) < \varepsilon_k))$
+    $\varepsilon_k:$ по индукции выбрали $n_1, \ldots, n_{k-1}$, $k \geq 2$. $\forall j \in ( 1 \ldots k-1 ) \forall m \in \bN (m > n_j \implies \rho (x_m, x_{n_j}) < \varepsilon_j)$.
+    Из фундаментальности исходной последовательности $\exists n_k (n_k > n_{k-1} \land \forall m \in \bN (m > n_k \implies \rho (x_m, x_{n_k}) < \varepsilon_k))$
 \end{proof}
 
 \begin{corollary}
 \label{cor:subseq-metric-sum-converges}
-    $(X, \rho)$, $\{x_n\}$~--- фундаментальная последовательность, тогда 
-    \[ \exists \{x_{n_k} \} \text { т.ч. } \sum_{k=1}^\infty \rho(x_{n_k}, x_{n_{k+1}}) < + \infty \]
+    $(X, \rho)$~--- метрическое пространство, $\{x_n\}$~--- фундаментальная последовательность $\Rightarrow$
+    \[ \exists \{x_{n_k} \} \text {~--- подпоследовательность} \sum_{k=1}^\infty \rho(x_{n_k}, x_{n_{k+1}}) < + \infty \]
 \end{corollary}
 \begin{proof}
     По 3 свойству при $\varepsilon_k = \frac{1}{2^k}$.
@@ -119,7 +131,7 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 
 \begin{theorem}[О замкнутом подмножестве]
 \label{theo:closed-subset-complete-space}
-    $(X,\rho)$~--- метрическое пространство, тогда
+    $(X,\rho)$~--- метрическое пространство $\Rightarrow$
     \begin{enumerate}
         \item $(X, \rho)$~--- полное, $Y \subseteq X$, $Y$~--- замкнутое $\Rightarrow (Y, \rho)$~--- полное
         \item $Y \subseteq X$, $(Y,\rho)$~--- полное $\Rightarrow$ $Y$~--- замкнутое
@@ -128,41 +140,51 @@ $(X, \rho)\text{~--- метрическое пространство} \Rightarro
 
 \begin{proof}[1 утверждение]
         Доказательство следует прямо из определения. Знаем, что $Y$~--- замкнутое подмножество полного пространства.
-        Берем фундаментальную последовательность. $Y \subset X$, пусть $\{x_n\}^\infty_{n=1}, \forall n \in \bN \: x_n \in Y$~--- фундаментальная.
-        $\forall n \in \bN \: x_n \in X, X$~--- полное $\Rightarrow \exists x_0 \in X \liml_{n \to \infty} x_n = x_0$. $Y$~--- замкнутое, значит $x_0 \in Y \Rightarrow (Y, \rho)$~--- полное.
+
+        Берём $\seq{x_n}^\infty_{n=1}$~--- фундаментальную последовательность в Y.
+
+        $\forall n \in \bN x_n \in X, X$~--- полное $\Rightarrow \exists x_0 \in X \liml_{n \to \infty} x_n = x_0$. Возьмём этот $x_0$.
+
+        $Y$~--- замкнутое $\Rightarrow x_0 \in Y \Rightarrow (Y, \rho)$~--- полное.
 \end{proof}
 \begin{proof}[2 утверждение]
         Второй пункт не труднее первого. Пусть $\{x_n\}^\infty_{n=1}$~--- произвольная фундаментальная последовательность в $Y$.
 
-        $Y$~--- полное $\Rightarrow \exists x_0 \in Y \liml_{n \to \infty} x_n = x_0 \Rightarrow Y$~--- замкнутое из-за произвольности последовательности.
+        $(Y, \rho)$~--- полное $\Rightarrow \exists x_0 \in Y \liml_{n \to \infty} x_n = x_0 \Rightarrow Y$~--- замкнутое из-за произвольности последовательности.
 \end{proof}
 
 \section{Банаховы пространства}
 
 Сначала введём понятие полунормы.
 \begin{definition}[полунорма]
-    Пусть $X$~--- линейное пространство над $\bR$ или $\bC$. Отображение $p: X \rightarrow \bR$ называется полунормой, если при $\forall x \in X \: \forall y \in X \: \forall \lambda \in \bR (\bC)$
+    $X$~--- линейное пространство над $\bC$ (или $\bR$).
+
+    $p: X \rightarrow \bR$~--- полунорма $\Leftrightarrow$
     \begin{enumerate}
-        \item $p(x + y) \leq p(x) + p(y)$ (полуаддитивность)
-        \item $p(\lambda x) = |\lambda| p(x)$
+        \item $\forall x \in X \forall y \in X p(x + y) \leq p(x) + p(y)$ (полуаддитивность)
+        \item $\forall x \in X \forall \lambda \in \bC p(\lambda x) = |\lambda| p(x)$
     \end{enumerate} 
 \end{definition}
 
 \begin{property}
     $p$~--- полунорма $\Rightarrow$
-    \[ \forall x \in X \: (p(x) \geq 0 \land p(\mathbb{0}) = 0) \]
+    \[ p(\mathbb{0}) = 0 \land \forall x \in X p(x) \geq 0 \]
 \end{property}
 
 \begin{proof}
     $p(\mathbb{0}) = p(0 \cdot \mathbb{0}) = 0 \cdot p(\mathbb{0}) = 0$.
-    Пусть $x \in X \Rightarrow \mathbb{0} = x + (-x) \Rightarrow p(\mathbb{0}) \leq p(x) + \underbrace{p(-x)}_{p(x)} = 2p(x) \Rightarrow p(x) \geq 0$
+
+    $\forall x \in X \mathbb{0} = x + (-x) \Rightarrow (x \in X \implies 0 = p(\mathbb{0}) = p(x + (-x)) \leq p(x) + \underbrace{p(-x)}_{p(x)} = 2 p(x)) \Rightarrow \forall x \in X p(x) \geq 0$
 \end{proof}
 
 \begin{definition}[Норма]
-    $X$~--- линейное пространство, $p : X \rightarrow \bR$. $p$~--- норма $\Leftrightarrow $ ($p$~--- полунорма $\land $ ($p(x) = 0 \Leftrightarrow x = \mathbb{0}$)).
+    $X$~--- линейное пространство, $p : X \rightarrow \bR$
+
+    $p$~--- норма $\Leftrightarrow $ ($p$~--- полунорма $\land \forall x \in X (p(x) = 0 \iff x = \mathbb{0}$)).
+
     Будем обозначать $||x|| \coloneqq p(x)$.
 \end{definition}
-$(X, || \cdot ||)$ будем обозначать нормированное пространство. и при $(x \in X \land y \in X)$ $\rho(x,y) \coloneqq ||x-y||$. Тогда $(X,||\cdot ||)$~--- метрическое пространство.
+$(X, || \cdot ||)$ будем обозначать нормированное пространство и $x \in X, y \in X \Rightarrow \rho(x,y) \coloneqq ||x-y||$. Тогда $(X,||\cdot ||)$~--- метрическое пространство (аксиомы для метрики следуют прямо из определений).
 
 \begin{definition}[банахово пространство]
     $(X, || \cdot ||)$~--- банахово, если оно полное
@@ -170,12 +192,13 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
 Еще пару определений перед критерием банахова пространства.
 
 \begin{definition}[подпространство в алгебраическом смысле]
-    $X$~--- линейное пространство, $L \subset X$. $L$~--- подпространство в алгебраическом смысле $\Leftrightarrow$ 
-    \[\forall x \in L \: \forall y \in L \: \forall \alpha \in K \: \forall \beta \in K \: \alpha x + \beta y \in L \]
+    $X$~--- линейное пространство$,L \subseteq X, K \in \{ \bR, \bC \}$
+
+    $L$~--- подпространство в алгебраическом смысле $\Leftrightarrow$ $\forall x \in L \forall y \in L \forall \alpha \in K \forall \beta \in K \alpha x + \beta y \in L$.
 \end{definition}
 
 \begin{definition}[подпространство]
-    $(X, || \cdot ||)$, $L \subset X$, $L$~--- подпространство, если
+    $(X, || \cdot ||)$, $L \subseteq X$, $L$~--- подпространство, если
     \begin{enumerate}
         \item $L$ подпространство в алгебраическом смысле
         \item $L = \overline{L}$ ($\overline{L}$~--- замыкание)
@@ -185,11 +208,11 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
 Теперь нам потребуется сходимость рядов. Для того, чтобы говорить о сходимости, нужна топология.
 
 \begin{definition}[Cходимость]
-    \[(X, || \cdot ||) \quad \seq{x_k}^\infty_{k=1} \quad S_n = \sum^n_{k=1} x_k \]
-    $\sum_{k=1}^\infty x_k (*)$,  
-    (*) сходится, если $\exists \liml_{n \to \infty}{S_n} = S \in X$
+    $(X, || \cdot ||)$~--- метрическое пространство, $\seq{x_k}^\infty_{k=1}$~--- последовательность элементов $X$, $S_n = \sum^n_{k=1} x_k $
 
-    (*) cходится абсолютно, если $\sum^\infty_{k=1} ||x_k||$ сходится
+    $\sum_{k=1}^\infty x_k (*)$, $(*)$ сходится, если $\exists S \in X \liml_{n \to \infty}{S_n} = S$
+
+    $(*)$ cходится абсолютно, если $\sum^\infty_{k=1} ||x_k||$ сходится
 \end{definition}
 В $\bR^n$ (или в $\bC^n$) если у нас была абсолютная сходимость, то была и обычная, но вообще говоря, это не так.
 
@@ -198,30 +221,31 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
 \end{theorem}
 
 \begin{proof}
-    Предположим, что наше пространство полное ($\Rightarrow)$. $(X, \rho)$~--- полное, $\seq{x_k}^\infty_{k=1}$~--- последовательность, при этом
+    Предположим, что наше \textcolor{blue}{пространство полное} ($\Rightarrow)$. $(X, \rho)$~--- полное, $\seq{x_k}^\infty_{k=1}$~--- последовательность, при этом
     \[ \sum^\infty_{k=1} ||x_k|| \tag{**} \text { сходится } \]
-    $S_n = \sum^n_{k=1} x_k$. Цель такая: последовательность $S_n$~--- фундаментальная. Сейчас применим критерий Коши к ряду (**). Это ряд из чисел, так что всё в порядке.
-    Пусть $\varepsilon > 0$. По критерию Коши $\exists N \in \bN  \, :\: \forall n \in \bN \: \forall p \in \bN \: (n > N \Rightarrow \sum^{n+p}_{k=n+1} ||x_k|| < \varepsilon)$.
+    Цель такая: последовательность $S_n$~--- фундаментальная. Сейчас применим критерий Коши к ряду (**). Это ряд из чисел, так что всё в порядке.
+    Пусть $\varepsilon > 0$. По критерию Коши $\exists N \in \bN \forall n \in \bN \forall p \in \bN (n > N \implies \sum^{n+p}_{k=n+1} ||x_k|| < \varepsilon)$. Далее $N$, $n$, $p$ взяты отсюда, $n > N$.
+
+    $S_n = \sum^n_{k=1} x_k$.
     \begin{multline*}
-        ||S_{n+p} - S_n|| = \left|\left| \sum^p_{k=1}  x_{n+k}\right|\right| \leq \sum^p_{k=1}||x_{n+k}|| = \sum^{n+p}_{k=n+1} ||x_k|| < \varepsilon\\
-        \Rightarrow \seq{S_n}^\infty_{n=1} \text{~--- фундаментальная}, (X, \rho) \text{~--- полное} \\
-        \Rightarrow \exists S \in X \liml_{n \to \infty}{S_n} = S \\
+        ||S_{n+p} - S_n|| = \left|\left| \sum^p_{k=1}  x_{n+k}\right|\right| \underbrace{\leq}_{\text{полуаддитивность}} \sum^p_{k=1}||x_{n+k}|| = \sum^{n+p}_{k=n+1} ||x_k|| < \varepsilon\\
+        \Rightarrow \seq{S_n}^\infty_{n=1} \text{~--- фундаментальная}\\
+        \textcolor{blue}{\Rightarrow} \exists S \in X \liml_{n \to \infty}{S_n} = S \\
         \Rightarrow \sum^\infty_{k=1} x_k \text{ сходится }
     \end{multline*}
-    Мы так запаслись номерами, чтобы выражение было меньше $\varepsilon$.
 
-    Теперь ($\Leftarrow$). У нас кроме определения ничего нет. Возьмём какую-то фундаментальную последовательность. Откуда взять предел? Есть соотношения между элементами последовательности. Возьмём подпоследовательность, ведь у нас есть следствие \ref{cor:subseq-metric-sum-converges}! 
+    Теперь \textcolor{red}{($\Leftarrow$)}. У нас кроме определения ничего нет. Возьмём какую-то фундаментальную последовательность. Откуда взять предел? Есть соотношения между элементами последовательности. Возьмём подпоследовательность, ведь у нас есть следствие \ref{cor:subseq-metric-sum-converges}! 
     Из свойств фундаментальных последовательностей, мы знаем, что
     \begin{gather*}
         \exists \{x_{n_k}\}_{k=1}^\infty\text{~--- подпоследовательность} ||x_{n_1}|| + \sum_{k=1}^\infty ||x_{n_{k+1}} - x_{n_k}|| \text{ сходится} \\
-         \Rightarrow \text{последовательность } x_{n_1} + \sum^{\infty}_{k=1} (x_{n_{k+1}} - x_{n_k}) \text{ сходится}
+         \textcolor{red}{\Rightarrow} \text{последовательность } x_{n_1} + \sum^{\infty}_{k=1} (x_{n_{k+1}} - x_{n_k}) \text{ сходится}
     \end{gather*}
     Но её последовательность частичных сумм~--- это в точности оригинальная подпоследовательность:
     \begin{gather*}
         S_m = x_{n_1} + \sum^{m-1}_{k=1}(x_{n_{k+1}} - x_{n_k}) = x_{n_m} \Rightarrow \exists S \in X \liml_{k \to \infty} x_{n_k} = S
     \end{gather*}
     Далее из части 2 Теоремы \ref{theo:cauchy-seq-properties}
-    \[ \exists S \in X \liml_{m \to \infty} x_{n_m} = S \Rightarrow \exists S \in X \liml_{n \to \infty} x_{n} = S \]
+    \[ \exists S \in X \liml_{k \to \infty} x_{n_k} = S \Rightarrow \exists S \in X \liml_{n \to \infty} x_{n} = S \]
 \end{proof}
 
 \section{Пространства ограниченных функций}
@@ -230,7 +254,13 @@ $(X, || \cdot ||)$ будем обозначать нормированное п
     \[ m(A) = \{ f | f: A \rightarrow \bC \land \sup_{x \in A} |f(x)| < +\infty \} \]
 \end{definition}
 
-$f \in m(A) \Rightarrow ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
+\begin{definition}
+$f \in m(A) \Rightarrow$
+
+\[||f||_{\infty} \coloneqq \sup_{x \in A} |f(x)|\]
+\end{definition}
+
+Это метрика для $m(A)$? Да, сейчас получим даже более сильный результат.
 
 \begin{theorem}
 \label{theo:bounded-func-space-is-banach}
@@ -239,11 +269,11 @@ $f \in m(A) \Rightarrow ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
 
 \begin{proof}
     Нужно проверить две вещи. Во-первых, что $|| \cdot ||_\infty$ удовлетворяет аксиомам нормы. А во-вторых, что пространство с таким определением является полным.
-    Просто по определению, никаких хитрых критериев~--- возьмём фундаментальную подпоследовательность и покажем, что у нее есть предел.
+    Просто по определению, никаких хитрых критериев~--- возьмём фундаментальную последовательность и покажем, что у неё есть предел.
 
     Проверяем, что $|| \cdot ||_\infty$ удовлетворяет аксиомам нормы.
 
-    \[ \forall \lambda \in \bC ||\lambda f||_\infty = \sup_{x \in A} |\lambda| \cdot ||f(x)|| = |\lambda| \cdot \sup_{x \in A} ||f(x)|| = |\lambda| \cdot ||f||_\infty \]
+    \[ \forall \lambda \in \bC ||\lambda f||_\infty = \sup_{x \in A} (|\lambda| \cdot ||f(x)||) = |\lambda| \cdot \sup_{x \in A} ||f(x)|| = |\lambda| \cdot ||f||_\infty \]
 
     Нужно проверить неравенство треугольника.
 
@@ -253,45 +283,43 @@ $f \in m(A) \Rightarrow ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
 \end{gather*}
 
     Следующая аксиома нормы:
-    \[ ||f||_\infty = 0 \Leftrightarrow \forall x \in A f(x) = 0  \text{ т.е. $f$~--- нулевая функция} \]
+    \[ ||f||_\infty = 0 \iff \forall x \in A f(x) = 0  \text{ т.е. $f$~--- нулевая функция} \]
     Теперь мы проверили аксиомы нормы. Доказываем полноту. 
-    $\{f_n\}^\infty_{n=0}$~--- фундаментальная в $m(A)$.
+    $\{f_n\}^\infty_{n=1}$~--- фундаментальная в $m(A)$.
 \begin{multline*}
-    \forall \varepsilon > 0 \: \exists N \in \bN \: \forall m \in \bN \: \forall n \in \bN\\
-    ((m > N \land n > N) \Rightarrow ||f_n - f_m||_\infty < \varepsilon) \text{ т.е. } \sup_{x \in A} |f_n(x) - f_m(x)| < \varepsilon
+    \forall \varepsilon > 0 \exists N \in \bN \forall m \in \bN \forall n \in \bN(\\
+    (m > N \land n > N) \implies ||f_n - f_m||_\infty < \varepsilon) \text{ т.е. } \sup_{x \in A} |f_n(x) - f_m(x)| < \varepsilon
 \end{multline*}
-    Первый вопрос: откуда взять претендента на роль предела? Еще желательно, чтобы он был единственный. Берём $\varepsilon, N$ из формулы выше, фиксируем $x$. Если для супремума есть неравенство, то и для $x$ тем более.
-    $\forall x \in A ((n > N \land m > N) \Rightarrow |f_n(x) - f_m(x)| < \varepsilon)$.
-    $\Rightarrow \{f_n(x)\}^\infty_{n=0}$~--- фундаментальная последовательность чисел в $\bC$.
+    Первый вопрос: откуда взять претендента на роль предела? Еще желательно, чтобы он был единственный. Берём $\varepsilon, N, m, n$ из формулы выше, фиксируем $x$. Если для супремума есть неравенство, то и для $x$ тем более.
+    $\forall x \in A ((n > N \land m > N) \implies |f_n(x) - f_m(x)| < \varepsilon) \Rightarrow \{f_n(x)\}^\infty_{n=0}$~--- фундаментальная последовательность чисел в $\bC$.
      
     $\Rightarrow \forall x \in A \: \exists L \in \bC \liml_{n \to \infty} f_n(x) = L$
 
     Определим $f \coloneqq (x \in A \mapsto \liml_{n \to \infty} f_n(x))$
     \begin{gather*}
-        (n > N \land m > N \Rightarrow \forall x \in A |f_n(x) - f_m(x)| < \varepsilon) \quad \text { пусть } m \to \infty \\
-        \Rightarrow (n > N \Rightarrow \forall x \in A |f_n(x) - f(x)| \leq \varepsilon) \\
-        \Rightarrow (n > N \Rightarrow ||f_n-f||_\infty = \sup_{x \in A} |f_n(x) - f(x)| \leq \varepsilon)
+        ((n > N \land m > N) \implies \forall x \in A |f_n(x) - f_m(x)| < \varepsilon) \quad \text { пусть } m \to \infty \\
+        \Rightarrow (n > N \implies \forall x \in A |f_n(x) - f(x)| \leq \varepsilon) \\
+        \Rightarrow (n > N \implies \underline{||f_n-f||_\infty} = \sup_{x \in A} |f_n(x) - f(x)| \underline{\leq \varepsilon})
     \end{gather*}
-     Последнее сображение, которое нужно добавить, это то, что $f$~--- элемент $A$. Для $n > N$ можем записать $f$ как $f = (f - f_n) + f_n, f_n \in m(A), f-f_n \in m(A)$.
+     Последнее сображение, которое нужно добавить, это то, что $f$~--- элемент $A$. Для $n > N$ можем записать $f$ как $f = (f - f_n) + f_n, f_n \in m(A)$. $\underline{||f_n - f||_\infty} = ||f - f_n||_\infty \Rightarrow f-f_n \in m(A)$.
 
-     \[\Rightarrow ||f||_\infty = ||(f - f_n) + f_n||_\infty \leq ||f - f_n||_\infty + ||f_n||_\infty < +\infty \Rightarrow f \in m(A) \]
+     \[||f||_\infty = ||(f - f_n) + f_n||_\infty \leq ||f - f_n||_\infty + ||f_n||_\infty < +\infty \Rightarrow f \in m(A) \]
  \end{proof}
- Давайте заметим, что у нас получилось определение равномерной непрерывности из математического анализа.
+ Давайте заметим, что у нас получилось определение равномерной сходимости из математического анализа.
 
 \[ \liml_{n \to \infty} f_n = f \in m(A) \Leftrightarrow \liml_{n \to \infty} \sup_{x \in A} |f_n(x) - f(x)| = 0 \Leftrightarrow f_n \darrow{\begin{subarray}{c}x \in A \\ n \to \infty\end{subarray}}  f \] 
 
 \begin{definition}[Топологический компакт]
-    Множество $K$~--- топологический компакт, если оно обладает следующими свойствами
+    Множество $K$~--- топологический компакт $\Leftrightarrow$
     \begin{enumerate}
-        \item $(\forall \alpha \in A\, G_\alpha$~--- открытое множество $\land K \subseteq \bigcup_{\alpha \in A} G_\alpha) \Rightarrow \exists \{\alpha_j\}_{j=1}^n$~--- конечная последовательность элементов A $ K \subseteq \bigcup^n_{j=1} G_{\alpha_j} $ (т.е. у каждого покрытия K открытыми множествами существует конечное подпокрытие)
-        \item Хаусдорфовость $\forall x \in K \forall y \in K (x \ne y \Rightarrow \exists U \exists V (U$~---  открытое множество $\land V$~--- открытое множество $\land x \in U \land y \in V \land U \cap V = \varnothing))$
+        \item $((\forall \alpha \in A G_\alpha$~--- открытое множество $\land K \subseteq \bigcup_{\alpha \in A} G_\alpha) \implies \exists \{\alpha_j\}_{j=1}^n$~--- конечная последовательность элементов A $ K \subseteq \bigcup^n_{j=1} G_{\alpha_j})$ (т.е. у каждого покрытия K открытыми множествами существует конечное подпокрытие)
+        \item Хаусдорфовость: $\forall x \in K \forall y \in K (x \ne y \implies \exists U \exists V (U$~---  открытое множество $\land V$~--- открытое множество $\land x \in U \land y \in V \land U \cap V = \varnothing))$
     \end{enumerate}
 \end{definition}
 
 \begin{definition}
     $C(K) = \{ f | f: K \rightarrow \bR \land f \text { непрерывна} \}$
-    \[ ||f||_{C(K)} = ||f||_\infty = \sup_{x \in K} |f(x)| = \max_{x \in K} |f(x)| \]
-
+    \[ ||f||_{C(K)} \coloneqq ||f||_\infty = \sup_{x \in K} |f(x)| \]
 \end{definition}
 
 \begin{corollary}
@@ -299,57 +327,55 @@ $f \in m(A) \Rightarrow ||f||_{\infty} = \sup_{x \in A} |f(x)|$.
 \end{corollary}
 
 \begin{proof}
-    Имеем дело с непрерывными функциями на компакте, поэтому $C(K) \subset m(K)$. $C(K)$~--- подпространство в алгебраическом смысле. 
+    Имеем дело с непрерывными функциями на компакте, поэтому \textcolor{orange}{$C(K) \subseteq m(K)$}. Напоминание: \textcolor{orange}{$m(K)$~--- полное}.
 
-    Пусть $\seq{f_n}_{n=0}^\infty$~--- произвольная фундаментальная последовательность в $C(K)$, $f \in m(K)$~--- её предел (существует по теореме \ref{theo:bounded-func-space-is-banach}). Это значит, что $f_n(x) \darrow{\begin{subarray}{c}x \in K\\ n \to \infty\end{subarray}} f(x)$. Тогда из анализа знаем, что $f \in C(K)$. Из-за произвольности выбора последовательности $C(K)$ замкнуто.
+    Пусть $\seq{f_n}_{n=1}^\infty$~--- произвольная фундаментальная последовательность в $C(K)$, $f \in m(K)$~--- её предел (существует по теореме \ref{theo:bounded-func-space-is-banach}). Это значит, что $f_n(x) \darrow{\begin{subarray}{c}x \in K\\ n \to \infty\end{subarray}} f(x)$. Тогда из анализа знаем, что $f \in C(K)$. Из-за произвольности выбора последовательности \textcolor{orange}{$C(K)$ замкнуто}.
 
-        По теореме \ref{theo:closed-subset-complete-space}  $(C(K), ||\cdot||_\infty)$ является полным, то есть $(C(K), ||\cdot||_\infty)$~--- банахово.
+    \textcolor{orange}{Теорема \ref{theo:closed-subset-complete-space} $\Rightarrow$} $(C(K), ||\cdot||_\infty)$~--- полное $\Rightarrow (C(K), ||\cdot||_\infty)$~--- банахово.
 \end{proof}
 
 
 \section{Пространство последовательностей с $\sup$ нормой}
 
 \begin{definition}
-    $n \in \bN, l^\infty_n = \{ x = (x_1, \ldots, x_n), x_j \in \bC \}$
-    \[ ||x||_\infty = \max_{j \in (1\ldots n)} |x_j| \]
+    $n \in \bN, l^\infty_n = \bC^n, x \in l^\infty_n$
+    \[ ||x||_\infty \coloneqq \max_{j \in (1\ldots n)} |x_j| \]
+    Это норма для $l^\infty_n$.
 \end{definition}
 
-Также об этом пространстве можно думать как о пространстве $m((1\ldots n))$, то есть оно полное.
+Неформальное рассуждение: если вместо кортежей длины $n$ взять функции из $(1\ldots n)$ и переформулировать утверждения об элементах $l^\infty_n$ соответствующим образом, то в некотором смысле $l^\infty_n$ <<такое же>>, как пространство $m((1\ldots n))$. В частности, оно тоже полно.
 
 Напомним, что последовательность~--- это функция на множестве натуральных чисел. Далее это используется явно.
 
 \begin{definition}[$l^\infty$]
-    \begin{gather*}
-        l^\infty \coloneqq m(\bN), ||x||_\infty = \sup_{j \in \bN} |x_j|
-    \end{gather*}    
+    $l^\infty \coloneqq m(\bN)$~--- множество пространства последовательностей, $||f||_\infty \coloneqq \sup_{j \in \bN} |f(j)|$~--- метрика на нём.
 \end{definition}
 
-То есть $l^\infty$~--- пространство последовательностей. Оно является обобщением пространств $l^\infty_n$ на цепочки произвольных длин.
+$l^\infty$ является обобщением пространств $l^\infty_n$ на цепочки произвольных длин.
 
 Отметим, что $l^\infty$~--- полное.
 
 \begin{definition}
-    \begin{gather*}
-        c \coloneqq \{ X = \seq{x_j}^\infty_{j=1}, x_j \in \bC \quad \exists \, x_0 \in \bC  \liml_{n \to \infty}{x_n = x_0} \} \\
-        c \subset l^\infty, ||X|| = ||X||_\infty = \sup_{j \in \bN} |x_j| \\
-        c_0 \coloneqq \{x=\{x_j\}_{j=1}^\infty, \liml_{n \to \infty} x_j = 0\}, c_0 \subset c \subset l^\infty 
-    \end{gather*}
+    \[ c \coloneqq \{ X \in l^\infty | \exists x_0 \in \bC  \liml_{n \to \infty}{X(n)} = x_0 \} \]
+\end{definition}
+\begin{definition}
+    \[ c_0 \coloneqq \{X \in c | \liml_{n \to \infty} X(n) = 0\} \]
 \end{definition}
 
 $c, c_0$~--- замкнутые подпространства в $l^\infty \Rightarrow c, c_0$~--- банаховы. 
 
- \section{Пространства $n$ раз непрерывно дифференцируемых функций на отрезке}
+\section{Пространства $n$ раз непрерывно дифференцируемых функций на отрезке}
 
  \begin{definition}[норма $n$-ой производной]
     \[n \in \bN \quad C^{(n)}[a,b] = \{ f | f: [a, b] \rightarrow \bR \land \exists f^{(n)} \in C[a,b] \} \]
     \[ \norm{f}_{C^{(n)}[a,b]} = \max_{0 \leq k \leq n} \norm{f^{(k)}}_\infty, f^{(0)} = f \]
  \end{definition}
 
- \begin{theorem}
+\begin{theorem}
      $(C^{(n)}[a,b], ||\cdot||_{C^{(n)}})$~--- банахово.
- \end{theorem}
+\end{theorem}
 
- \begin{proof}
+\begin{proof}
     \begin{gather*}
         \{f_m\}^\infty_{m=1} \text{~--- фундаментальная последовательность в } C^{(n)}[a,b] \\
         \textcolor{red}{\forall \varepsilon > 0 \exists N \in \bN \forall m \in \bN \forall q \in \bN ((m > N \land q > N) \implies} \normunder{f_m-f_q}{C^{(n)}} < \varepsilon) \\
@@ -358,11 +384,12 @@ $c, c_0$~--- замкнутые подпространства в $l^\infty \Rig
     \end{gather*}
 
     \begin{multline*}
-        \textcolor{blue}{\forall k \in (0\ldots n)} \{f_m^{(k)} \} \text {~--- фундаментальная в полном пространстве } C[a,b]\\
-        \Rightarrow \textcolor{blue}{\ldots} \exists \varphi_k \in C[a,b] f_m^{(k)}(x) \darrow{\begin{subarray}{c}x \in [a,b] \\ m \to \infty\end{subarray}} \varphi_k(x)
+        \forall k \in (0\ldots n) \{f_m^{(k)} \} \text {~--- фундаментальная в полном пространстве } C[a,b]\\
+        \Rightarrow \forall k \in (0\ldots n) \exists \varphi_k \in C[a,b] f_m^{(k)}(x) \darrow{\begin{subarray}{c}x \in [a,b] \\ m \to \infty\end{subarray}} \varphi_k(x)
     \end{multline*}
+    Возьмём эти $\varphi_k$.
 
-     Из анализа известно, что $\forall x \in [a, b] \forall k \in (1\ldots n) \varphi_{k}(x) = \varphi_{0}^{(k)}(x)$. Причём все $\varphi_k$ непрерывны. То есть произвольно выбранная фундаментальная последовательность сходится к функции, непрерывно дифференцируемой $n$ раз.
+    Из анализа известно, что $\forall x \in [a, b] \forall k \in (1\ldots n) \varphi_{k}(x) = \varphi_{0}^{(k)}(x)$ (почленное дифференцирование). Причём все $\varphi_k$ непрерывны. То есть произвольно выбранная фундаментальная последовательность сходится к функции, непрерывно дифференцируемой $n$ раз.
  \end{proof}
 
 

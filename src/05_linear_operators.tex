@@ -30,7 +30,7 @@ $\Lin(X,Y)$ ~--- множество линейных операторов из $
 \end{example}
  
 \begin{example}[оператор вложения]
-    $l^1 \subset l^2$, $x = \seq{x_n}^\infty_{n=1}, \sum^\infty_{n=1} |x_n| < + \infty, x \in l^1 \Rightarrow \sum^\infty_{n=1} |x_n|^2 < + \infty \Rightarrow x \in l^2$
+    $l^1 \subseteq l^2$, $x = \seq{x_n}^\infty_{n=1}, \sum^\infty_{n=1} |x_n| < + \infty, x \in l^1 \Rightarrow \sum^\infty_{n=1} |x_n|^2 < + \infty \Rightarrow x \in l^2$
     \begin{gather*} 
         Ax = x, A \text{ оператор вложения } l^1 \xhookrightarrow{A} l^2 \\
         \forall 1 \leq p_1 < p_2 \leq + \infty \Rightarrow l^{p_1} \xhookrightarrow{A} l^{p_2}, Ax = x \\
@@ -44,7 +44,7 @@ $\Lin(X,Y)$ ~--- множество линейных операторов из $
  
 Перед тем, как доказывать теорему, еще одно небольшое определение.
 \begin{definition}[Выпуклое множество]
-    $B \subset X, X$ ~--- линейное пространство. $B$ ~--- \textbf{ выпуклое }, если 
+    $B \subseteq X, X$ ~--- линейное пространство. $B$ ~--- \textbf{ выпуклое }, если 
     \[ \forall x,z \in B, \forall t, 0 \leq t \leq 1 \Rightarrow tx + (1-t)z \in B \]
     то есть отрезок, соединяющий любые две точки, полностью лежит в этом множестве
 \end{definition}
@@ -52,10 +52,10 @@ $\Lin(X,Y)$ ~--- множество линейных операторов из $
 \begin{theorem}[простейшие свойства линейного оператора]
     $X,Y$ ~--- линейные пространства над $k$ ($\bR$ или $\bC$), $A \in \Lin(X,Y)$
     \begin{enumerate}
-        \item $L \subset X, L$ ~--- подпространство в $X$ $\Rightarrow A(L)$ ~--- подпространство в $Y$ (образ подпространства ~--- подпространство)
-        \item $M \subset Y, M$ ~--- подпространство в $Y \Rightarrow$ $\underbrace{A^{-1}(M)}_{\text{прообраз}}$ ~--- подпространство в $X$
-        \item $B \subset X, B$ ~--- выпуклое $\Rightarrow A(B)$ ~--- выпуклое в $Y$
-        \item $C \subset Y, C$ ~--- выпуклое $\Rightarrow A^{-1}(C)$ ~--- выпуклое в $X$
+        \item $L \subseteq X, L$ ~--- подпространство в $X$ $\Rightarrow A(L)$ ~--- подпространство в $Y$ (образ подпространства ~--- подпространство)
+        \item $M \subseteq Y, M$ ~--- подпространство в $Y \Rightarrow$ $\underbrace{A^{-1}(M)}_{\text{прообраз}}$ ~--- подпространство в $X$
+        \item $B \subseteq X, B$ ~--- выпуклое $\Rightarrow A(B)$ ~--- выпуклое в $Y$
+        \item $C \subseteq Y, C$ ~--- выпуклое $\Rightarrow A^{-1}(C)$ ~--- выпуклое в $X$
         \item пусть $A$ ~--- биекция $\Rightarrow A^{-1} \in \Lin(Y,X)$
     \end{enumerate}
 \end{theorem}
@@ -109,7 +109,7 @@ $\Lin(X,Y)$ ~--- множество линейных операторов из $
 \section{Линейные операторы в нормированных пространствах}
 Линейные операторы в нормированных пространствах ~--- главный объект, который изучает функциональный анализ.
 \begin{definition}[Огранисченный оператор]
-    $(X, || \cdot||)$, $(Y, || \cdot ||), A \in \Lin(X,Y) $. $A$ ~--- \textbf{ ограниченный}, если $\forall C \subset X, C$ ~--- ограниченное $\Rightarrow A(C)$ ~--- ограниченное 
+    $(X, || \cdot||)$, $(Y, || \cdot ||), A \in \Lin(X,Y) $. $A$ ~--- \textbf{ ограниченный}, если $\forall C \subseteq X, C$ ~--- ограниченное $\Rightarrow A(C)$ ~--- ограниченное 
     в $Y$.
 \end{definition}
 Оказывается, для операторов ограниченность эквивалентна непрерывности. Казалось бы, ограниченность сильно слабее, но если к ней добавить  линейность, то будет аж непрерывность. \\
@@ -146,12 +146,12 @@ $2 \Rightarrow 1$ очевидно
 \end{proof}
  
 \begin{proof}[$3 \Rightarrow 4$]
-    $B \subset X$, $B$ ~--- ограниченное, то есть $\exists M > 0 : (\forall x \in B \land ||x|| < M) \stackrel{3}{\Rightarrow} ||Ax|| \leq C||x|| \leq CM \, \forall x \in B \Rightarrow 
+    $B \subseteq X$, $B$ ~--- ограниченное, то есть $\exists M > 0 : (\forall x \in B \land ||x|| < M) \stackrel{3}{\Rightarrow} ||Ax|| \leq C||x|| \leq CM \, \forall x \in B \Rightarrow 
     \{ A(B) \}$ ~--- ограниченное.
 \end{proof}
 $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \begin{proof}[$5 \Rightarrow 1$]
-    $\exists R > 0 \, A(B^x_r(0)) \subset B^y_R(0)$
+    $\exists R > 0 \, A(B^x_r(0)) \subseteq B^y_R(0)$
     \begin{gather*}
         ||x|| < r \Rightarrow ||Ax|| < R \\
         \intertext{непрерывность в 0 означает} 
@@ -253,7 +253,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \begin{example}
     $Y = C[a,b], X = \{f: \, \exists f^\prime \in C[a,b] \}$, $0 \leq a \leq b$
     \begin{gather*}
-        X \subset Y, X \text{ ~--- подпространство } Y, \text{ то есть } \\
+        X \subseteq Y, X \text{ ~--- подпространство } Y, \text{ то есть } \\
         ||f||_X = ||f||_Y = \max_{x \in [a,b]} |f(x)| \\
         D(f) = f^\prime \Rightarrow D \in \Lin(X,Y), \\
         D(x^n) = n x^{n-1} \quad \sup_{n \in \bN} \frac{||D(x^n)||}{||x^n||} = \sup_{n \in \bN} \frac{nb^{n-1}}{b^n} = +\infty
@@ -535,7 +535,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 \begin{definition}
     $X$ --- линейное пространство, $\norm{\cdot}_1, \norm{\cdot}_2$ --- две нормы на $X$. $\norm{\cdot}_1$ эквивалентна $\norm{\cdot}_2$, если 
     \[ \liml_{n \to \infty} \norm{x_n - x_0}_1 = 0 \Leftrightarrow \liml_{n \to \infty} \norm{x_n - x_0}_2 = 0 \]
-    По-другому можно сказать, что топологии, которые задают эти  нормы, одинаковые: $\Leftrightarrow G \subset X, G$ --- открытое в $(X, \norm{\cdot}_1) \Leftrightarrow G$ --- открытое в $(X, \norm{\cdot}_2)$
+    По-другому можно сказать, что топологии, которые задают эти  нормы, одинаковые: $\Leftrightarrow G \subseteq X, G$ --- открытое в $(X, \norm{\cdot}_1) \Leftrightarrow G$ --- открытое в $(X, \norm{\cdot}_2)$
 \end{definition}
  
 \begin{corollary}
@@ -613,8 +613,8 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     $(X, \norm{\cdot}), \dim X = n \in \bN \Rightarrow$
     \begin{enumerate}
         \item $X$ --- банахово 
-        \item $K \subset X, K$ --- относительно компактно $\Leftrightarrow K$ --- ограничено
-        \item $K \subset X, K$ --- компакт $\Leftrightarrow K$ --- ограничено и замкнуто  
+        \item $K \subseteq X, K$ --- относительно компактно $\Leftrightarrow K$ --- ограничено
+        \item $K \subseteq X, K$ --- компакт $\Leftrightarrow K$ --- ограничено и замкнуто  
     \end{enumerate}
 \end{corollary}
 Мы когда-нибудь выясним, что если в пространстве единичный шар --- компакт, то это пространство конечномерное.
@@ -722,7 +722,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 Начнём с некоторого общего определения, которое касается метрических пространств.
  
 \begin{definition}
-    $(X,\rho)$ --- метрическое, $Y \subset X, x_0 \in X, \rho(x_0,Y) = \inf_{y \in Y} \rho(x_0, y)$. Если $\exists y_0 \in Y$ т.ч.$ \rho(x_0, Y) = \rho(x_0,y_0)$, то
+    $(X,\rho)$ --- метрическое, $Y \subseteq X, x_0 \in X, \rho(x_0,Y) = \inf_{y \in Y} \rho(x_0, y)$. Если $\exists y_0 \in Y$ т.ч.$ \rho(x_0, Y) = \rho(x_0,y_0)$, то
     $y_0$ --- \textbf{элемент наилучшего приближения} для $x_0$ в $Y$
 \end{definition}
 
@@ -735,7 +735,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 теперь мы имеем дело с конечномерным подпространством
 
 \begin{theorem}
-    $(X, \norm{\cdot})$ --- нормированное, $L \subset X$. $L$ --- подпространство (в алгебраическом смысле), $\dim L = n < + \infty \Rightarrow$
+    $(X, \norm{\cdot})$ --- нормированное, $L \subseteq X$. $L$ --- подпространство (в алгебраическом смысле), $\dim L = n < + \infty \Rightarrow$
     \begin{enumerate}
         \item $L$ --- замкнутое \\
         \item $\forall x_0 \in X \: \exists y_0 \in L$ --- элемент наилучшего приближения
@@ -887,7 +887,7 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
 Вот так нам удалось установить, что если в пространстве единичный шар --- компакт, то пространство конечномерное.
 
 \begin{theorem}[о продолжении линейного оператора]
-    $(X, \norm{\cdot})$ --- нормированное, $(Y, \norm{\cdot})$ --- банахово, $L \subset X, L$ --- подпространство в алгебраическом смысле
+    $(X, \norm{\cdot})$ --- нормированное, $(Y, \norm{\cdot})$ --- банахово, $L \subseteq X, L$ --- подпространство в алгебраическом смысле
     \[ \overline{L} = X, A \in \B(L,Y) \Rightarrow \: \existu V \in \B(X,Y) : \norm{V}_{\B(X,Y)} = \norm{A}_{\B(L,Y)} \] 
 \end{theorem}
 
@@ -983,6 +983,4 @@ $4 \Rightarrow 5$ очевидно ($B_r(0)$ ~--- ограниченное)
     \end{gather*}
 \end{proof}
 
-
 \end{document}
-

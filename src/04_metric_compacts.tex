@@ -5,7 +5,7 @@
 Топологический компакт: из любого подпокрытия можно выбрать конечное подпокрытие.
 \begin{statement}[из топологии]
     \begin{enumerate}
-        \item $(X, \rho)$ -- метрическое пространство, $K \subset X$, $K$ -- компакт $\Leftrightarrow K$ -- счётно-компактен, то есть 
+        \item $(X, \rho)$ -- метрическое пространство, $K \subseteq X$, $K$ -- компакт $\Leftrightarrow K$ -- счётно-компактен, то есть 
         \[ \forall \seq{x_n}^\infty_{n=1}, x_n \in K \quad \exists \seq{x_{n_j}}^\infty_{j=1} \text{ т.ч. } \exists \liml_{j \to \infty} x_{n_j} = x_0, \, x_0 \in K \] 
         \item $K$ -- компакт $\Rightarrow$ $K$ -- ограниченное замкнутое множество.
     \end{enumerate}
@@ -29,7 +29,7 @@
 
 Ещё одно \textit{напоминание}, кто такие относительно компактные множества.
 \begin{definition}[относительный компакт]
-    $(X, \rho), A \subset X, A$ -- относительно компактно, если $\overline{A}$ -- компакт.
+    $(X, \rho), A \subseteq X, A$ -- относительно компактно, если $\overline{A}$ -- компакт.
     Или можно сказать 
     \[\Leftrightarrow \, \forall \seq{x_n}^\infty_{n=1}, x_n \in A \, \exists \seq{x_{n_j}}^\infty_{j=1}, \, \exists \liml_{j \to \infty} x_{n_j} = x_0, x_0 \in X \]
     Предел не обязательно принадлежит $A$.
@@ -41,11 +41,11 @@
 
 Еще несколько определений:
 \begin{definition}[$\varepsilon$-сеть]
-    $(X, \rho)$ -- метрическое пространство. $A \subset X, \varepsilon > 0$ \\
+    $(X, \rho)$ -- метрическое пространство. $A \subseteq X, \varepsilon > 0$ \\
     $F$ -- $\varepsilon$-сеть для $A$, если 
     \begin{multline*}
         \forall a \in A \, \exists f \in F: \rho(a,f) < \varepsilon \\
-        (\Leftrightarrow \, \forall a \in A B_\varepsilon(a) \cap F \ne \varnothing) \Leftrightarrow (A \subset \bigcup_{f \in F} B_{\varepsilon}(f))
+        (\Leftrightarrow \, \forall a \in A B_\varepsilon(a) \cap F \ne \varnothing) \Leftrightarrow (A \subseteq \bigcup_{f \in F} B_{\varepsilon}(f))
     \end{multline*}
 \end{definition}
 
@@ -62,12 +62,12 @@
 \end{remark}
 
 \begin{example}
-    $(\bR^n, || \cdot ||_2) = l^2_n \quad A \subset \bR^n$. $A$ -- ограниченное $\Leftrightarrow A$ вполне ограниченное
+    $(\bR^n, || \cdot ||_2) = l^2_n \quad A \subseteq \bR^n$. $A$ -- ограниченное $\Leftrightarrow A$ вполне ограниченное
 \end{example}
 
 \begin{proof}
     $A$ -- ограниченное $\Leftrightarrow$ $\exists M > 0, \, \forall x - (x_1, \ldots, x_n) \in A \Rightarrow |x_j| \leq M$ \\
-    $A \subset \bQ = \seq{ |x_j| \leq M, 1 \leq j \leq n}$
+    $A \subseteq \bQ = \seq{ |x_j| \leq M, 1 \leq j \leq n}$
     Как же построить $\varepsilon$--сеть? \\ %рисунок с решеткой
     Пусть $\varepsilon > 0$, $Q = \bigcup Q_j, l$ -- cторона $Q_j$
     \begin{gather*}
@@ -88,7 +88,7 @@
 Убедимся в пространстве $l^2$
 
 \begin{example}
-    $D \subset l^2, D = \seq{x \in l^2: ||x||_2 \leq 1}$
+    $D \subseteq l^2, D = \seq{x \in l^2: ||x||_2 \leq 1}$
     Убедимся, что $D$ -- не вполне ограниченное.
 \end{example}
 
@@ -98,14 +98,14 @@
         B_{\frac{1}{2}} (e_n) \cap B_{\frac{1}{2}}(e_m) = \varnothing \\
         \varepsilon = \frac{1}{2}, F \text{ -- } \frac{1}{2}\text{-сеть для } D \\
         \Rightarrow \, \forall n \, \exists f_n \in F \cap B_{\frac{1}{2}}(e_n), \, f_n \ne f_m (n \ne m) \text{ так как } B_{\frac{1}{2}}(e_n) \cap B_{\frac{1}{2}}(e_m) = \varnothing \\
-        \seq{f_n}^\infty_{n=1} \subset F \Rightarrow F \text{ -- не конечное}
+        \seq{f_n}^\infty_{n=1} \subseteq F \Rightarrow F \text{ -- не конечное}
     \end{gather*}
     %Базисные векторы. Пока мы не знаем, почему они так называются, но потом выясним, почему
 \end{proof}
 
 Теперь посмотрим для $l^\infty$
 \begin{example}
-    $ \Pi = \seq{x = \seq{x_n}^\infty_{n=1}, \, |x_n| < \frac{1}{2^n}} \subset l^2$.
+    $ \Pi = \seq{x = \seq{x_n}^\infty_{n=1}, \, |x_n| < \frac{1}{2^n}} \subseteq l^2$.
     Проверим, что $\Pi$ -- вполне ограничено.
     % рисунок гильбертова кирпича
     $\let \varepsilon > 0 $
@@ -114,8 +114,8 @@
         \Pi^* = \seq{x = \seq{x_1, \ldots, x_N, 0, 0, \ldots}}, |x_j| \leq \frac{1}{2^j}, \, 1 \leq j \leq N \quad x_{N+k} =0, k \in \bN
     \end{gather*}
     Если мы забудем про нули, то можем думать, что $\Pi^*$ лежит в $\bR^n$, и там оно ограниченное, а значит и вполне ограниченное.
-    $\Pi^* \subset \bR^n$, $\Pi^*$ -- ограниченное $\Rightarrow$ вполне ограниченное $\Rightarrow$ 
-    $\exists F \subset \Pi^*$ -- конечная $\varepsilon$-сеть. \\
+    $\Pi^* \subseteq \bR^n$, $\Pi^*$ -- ограниченное $\Rightarrow$ вполне ограниченное $\Rightarrow$ 
+    $\exists F \subseteq \Pi^*$ -- конечная $\varepsilon$-сеть. \\
     Докажем, что $F$ -- $2\varepsilon$-сеть для $\Pi$.
     \begin{gather*}
         x \in \Pi \quad \Rightarrow x = \underbrace{(x_1, \ldots, x_N, 0, \ldots)}_y + \underbrace{(0, 0, \ldots, 0, x_{N+1}, x_{N+2}, \ldots)}_z \\
@@ -131,13 +131,13 @@
 \begin{property}
     \begin{enumerate}
         \item $A$ -- вполне ограничено $\Rightarrow \overline{A}$ -- вполне ограничено 
-        \item $A \subset Y \subset X, A$  -- вполне ограничено в $X \Rightarrow$  $A$ -- вполне ограниченное в $Y$.
+        \item $A \subseteq Y \subseteq X, A$  -- вполне ограничено в $X \Rightarrow$  $A$ -- вполне ограниченное в $Y$.
         \item $A$ -- вполне ограничено $\Rightarrow (A, \rho)$ -- сепарабельно.
     \end{enumerate}
 \end{property}
 
 \begin{proof}[1 свойство]
-    $A \subset X, \varepsilon > 0$. $F$ -- конечная $\varepsilon$-сеть для $A$. Проверим, что
+    $A \subseteq X, \varepsilon > 0$. $F$ -- конечная $\varepsilon$-сеть для $A$. Проверим, что
     $F$ -- $(2\varepsilon$-сеть) для $\overline{A}$
     \begin{gather*}
         \text{ пусть } x \in \overline{A} \Rightarrow \, \exists y \in A: \rho(x,y) < \varepsilon, \, \exists f \in F: \rho(y,f) < \varepsilon \\
@@ -147,8 +147,8 @@
 
 \begin{proof}[2 свойство]
     Проблема в том, что надо двигать точки. Мы уже так делали, когда доказывали сепарабельность.
-    $A \subset Y \subset X, \varepsilon > 0, \seq{x_k}^n_{k=1}$ -- $\varepsilon$-сеть для $A$, $x_k \in X$ \\
-    $A \subset \bigcup^n_{k=1} B_\varepsilon(x_k)$, если $A \cap B_\varepsilon(x_k) \ne \varnothing$, то
+    $A \subseteq Y \subseteq X, \varepsilon > 0, \seq{x_k}^n_{k=1}$ -- $\varepsilon$-сеть для $A$, $x_k \in X$ \\
+    $A \subseteq \bigcup^n_{k=1} B_\varepsilon(x_k)$, если $A \cap B_\varepsilon(x_k) \ne \varnothing$, то
     пусть $y_k \in A \cap B_\varepsilon(x_k)$ (если $=\varnothing$, то не будем выбирать)
 
     Мы найдем $\varepsilon$-сеть из точек множества $A$, тогда она точно будет обслуживать и $Y$. Как же и куда сдвигать точки?
@@ -157,38 +157,38 @@
     \begin{multline*}
         x \in A \Rightarrow \, \exists x_k : \rho(x,x_k) < \varepsilon \Rightarrow A \cap B_{\varepsilon}(x_k) \ne \varnothing \Rightarrow y_k \in B_{\varepsilon}(x_k) \Rightarrow \\
         \rho(x_k,y_k) < \varepsilon \Rightarrow \rho(x,y_k) \leq \rho(x,x_k) + \rho(x_k, y_k) < 2\varepsilon \Rightarrow \\
-        E \text{ -- } (2\varepsilon)\text{-сеть для } A, E \subset A
+        E \text{ -- } (2\varepsilon)\text{-сеть для } A, E \subseteq A
     \end{multline*}
 \end{proof}
 
 \begin{proof}[3 свойство]
     $n \in \bN, F_n$ -- $\left( \frac{1}{n} \right)$-сеть для $A$, $F_n$ -- конечное.
-    \[ F \text{ (счетное )} = \bigcup^\infty_{n=1} F_n \text{ -- плотно в } A, \text{ то есть } A \subset \overline{F} \]
+    \[ F \text{ (счетное )} = \bigcup^\infty_{n=1} F_n \text{ -- плотно в } A, \text{ то есть } A \subseteq \overline{F} \]
 \end{proof}
 
 \begin{statement}[о разбиении]
-    $(X, \rho), A \subset X, \varepsilon > 0$. $F$ -- конечная $\varepsilon$-сеть для $A \Rightarrow$ 
+    $(X, \rho), A \subseteq X, \varepsilon > 0$. $F$ -- конечная $\varepsilon$-сеть для $A \Rightarrow$ 
     \[ \exists \seq{C_j}^n_{j=1} \quad A = \bigcup^n_{j=1} C_j \quad C_j \cap C_k = \varnothing, j \ne k, \diam C_j \leq 2 \varepsilon, C_j \ne \varnothing \]
 
 \end{statement}
 
 \begin{proof}
     \begin{gather*}
-        F = \seq{x_k}^n_{k=1}, A \subset \bigcup^n_{k=1} B_\varepsilon(x_k) \\
+        F = \seq{x_k}^n_{k=1}, A \subseteq \bigcup^n_{k=1} B_\varepsilon(x_k) \\
         C_1 = A \cap B_\varepsilon(x_1) \\
         C_2 = (A \cap B_\varepsilon(x_2)) \setminus C_1 \\
         C_k = A \cap B_\varepsilon(x_k) \setminus \left( \bigcup^{k-1}_{j=1} \right) \quad k = 2, \ldots, n
     \end{gather*}
-    если $C_k = \varnothing$, то забудем о нём. $C_k \subset B_{\varepsilon(x_k)} \Rightarrow \diam C_k \leq 2 \varepsilon$
+    если $C_k = \varnothing$, то забудем о нём. $C_k \subseteq B_{\varepsilon(x_k)} \Rightarrow \diam C_k \leq 2 \varepsilon$
 \end{proof}
 
 Теперь у нас всё готово для доказательства теоремы о том, как описывать компакты в терминах вполне ограниченных множеств.
 \begin{theorem}[Хаусдорф]
-    $(X,\rho)$ -- метрическое пространство, $A \subset X$. \\
+    $(X,\rho)$ -- метрическое пространство, $A \subseteq X$. \\
 
     $A$ -- компакт $\Leftrightarrow$
     \begin{enumerate}
-        \item   $A \text{ полное, то есть } \forall \seq{x_n}^\infty_{n=1} \subset A, \seq{x_n} \text{ -- фундаментальная } \exists \lim x_n = x_0 \in A$ 
+        \item   $A \text{ полное, то есть } \forall \seq{x_n}^\infty_{n=1} \subseteq A, \seq{x_n} \text{ -- фундаментальная } \exists \lim x_n = x_0 \in A$ 
         \item  $A$ --  вполне ограничено
     \end{enumerate}
 
@@ -203,8 +203,8 @@
     Проверили первое условие. Теперь надо проверить второе: сначала покроем наш компакт безумным количеством шариков, а они ведь открытые множества, и среди
     них существует конечное подпокрытие. 
     \begin{gather*}
-        \text{пусть } \varepsilon > 0 \quad A \subset \bigcup_{a \in A} B_\varepsilon(a) \land A \text { -- компакт } \Rightarrow , \exists \seq{a_j}^n_{j=1}, a_j \in A : \\
-        A \subset \bigcup^n_{j=1} B_\varepsilon(a_j) \Rightarrow F = \seq{a_j}^n_{j=1} \text{ -- } \varepsilon\text{-сеть для } A
+        \text{пусть } \varepsilon > 0 \quad A \subseteq \bigcup_{a \in A} B_\varepsilon(a) \land A \text { -- компакт } \Rightarrow , \exists \seq{a_j}^n_{j=1}, a_j \in A : \\
+        A \subseteq \bigcup^n_{j=1} B_\varepsilon(a_j) \Rightarrow F = \seq{a_j}^n_{j=1} \text{ -- } \varepsilon\text{-сеть для } A
     \end{gather*}
     Это была тривиальная часть теоремы. 
     $\Leftarrow$. \\
@@ -217,11 +217,11 @@
         \varepsilon_2 = \frac{1}{2^2}, \text{ по лемме о разбиении к } A_1 \Rightarrow \exists \seq{C_j^{(2)}}_{j=1}^{N_2} \\
         \diam C_j^{(2)} \leq \frac{1}{2} \quad A_1 = \bigcup^{N_2}_{j=1} C_j^{(2)} \\
         \exists 1 \leq j \leq N_2 \quad C_j^{(2)} \text {содержит бесконечное количетсво элементов в } x_n \\
-        \text{ и так далее } \seq{A_m}^\infty_{m=1}, A_{m+1} \subset A_m, \diam_{A_m} \leq \frac{1}{2^m} \\
+        \text{ и так далее } \seq{A_m}^\infty_{m=1}, A_{m+1} \subseteq A_m, \diam_{A_m} \leq \frac{1}{2^m} \\
         A_m \text{ содержит бесконечное число элементов } \seq{x_n}^\infty_{n=1} (*)\\
         x_{n_1} \in A_1, \quad \exists n_2 > n_1 : x_{n_2} \in A_2 \text{ т.к. (*)} \\
         \text{ и так далее } \exists n_k \text{ т.ч. } n_k > n_{k-1} \quad x_{n_k} \in A_k \\
-        \seq{x_{n_k}}^\infty_{k=1}, x_{n_k} \in A_k, \diam A_k \underset{k \to \infty}{\longrightarrow} 0 \quad A_{k+1} \subset A_k \\
+        \seq{x_{n_k}}^\infty_{k=1}, x_{n_k} \in A_k, \diam A_k \underset{k \to \infty}{\longrightarrow} 0 \quad A_{k+1} \subseteq A_k \\
         \Rightarrow \seq{x_{n_k}}^\infty_{k=1} \text{ -- фундаментальная } \wedge A \text{ -- полное } \\
         \Rightarrow \, \exists \liml_{k \to \infty} x_{n_k} = x_0, x_0 \in A
     \end{gather*}
@@ -229,7 +229,7 @@
 Часто описывают компакт, но фактически говорят об относительный компкте. Для описания компакта, опять же, надо просто добавить замкнутость.
 
 \begin{corollary}
-    $(X, \rho)$ -- метрическое, $A \subset X$. 
+    $(X, \rho)$ -- метрическое, $A \subseteq X$. 
     \begin{enumerate}
         \item $A$ -- относительно компактно $\Rightarrow$ $A$ вполне ограничено 
         \item $(X,\rho)$ -- полное, $A$ -- относительно компактно $\Leftrightarrow$ $A$ вполне ограничено 
@@ -238,7 +238,7 @@
 Будем изо всех сил пользоваться теоремой Хаусдорфа.
 \begin{proof}[1 утверждение]
     $A$ -- относителько компактно, $\Rightarrow \overline{A}$ -- компакт, тогда по теореме Хаусдорфа 
-    $\overline{A}$ -- вполне ограничено, $A \subset \overline{A} \Rightarrow A$ вполне ограничено.
+    $\overline{A}$ -- вполне ограничено, $A \subseteq \overline{A} \Rightarrow A$ вполне ограничено.
 \end{proof}
 
 \begin{proof}[2 утверждение]
@@ -249,7 +249,7 @@
 Оказывется, можно вместо конечных $\varepsilon$-сетей можно утверждать чуть большее.
 
 \begin{corollary}
-    $(X, \rho)$ -- полное, $A \subset X$. Если для $\forall \varepsilon > 0 \, \exists$ относительно компактная $\varepsilon$-сеть, то
+    $(X, \rho)$ -- полное, $A \subseteq X$. Если для $\forall \varepsilon > 0 \, \exists$ относительно компактная $\varepsilon$-сеть, то
     $A$ -- относительно компактно
 \end{corollary}
 
@@ -263,7 +263,7 @@
 
 \begin{definition}
     $(K, \rho)$ -- метрический компакт.
-     $C(K) = \seq{f: K \rightarrow \bR (\bC), f \text{ -- непрерывная}}, ||f|| = \max_{x \in K} |f(x)| \Phi \subset C(K)$.
+     $C(K) = \seq{f: K \rightarrow \bR (\bC), f \text{ -- непрерывная}}, ||f|| = \max_{x \in K} |f(x)| \Phi \subseteq C(K)$.
     $\Phi$ -- \textbf{ равностепенно непрерывно}, если 
     \[ \forall \varepsilon > 0 \, \exists \delta > 0 \, \, \forall f \in \Phi, \, \forall x, y \in K, \rho(x,y) < \delta \Rightarrow |f(x) - f(y)| < \varepsilon \] 
     $EC$ -- equicontinuous.
@@ -273,7 +273,7 @@
 Раностепенная непрерывность отличается от равномерной непрерывности тем, что $\delta$ не зависит от $f$, но от $\varepsilon$ конечно зависит.
 Некоторый вариант теоремы Арцелла-Асколи, который, возможно, доказывали на дифурах:
 \begin{theorem}[Асколи-Арцелла]
-    $K$ -- компакт, $(K, \rho)$, $\Phi \subset C(K)$. $\Phi$ -- относительно компактно $\Leftrightarrow$ 
+    $K$ -- компакт, $(K, \rho)$, $\Phi \subseteq C(K)$. $\Phi$ -- относительно компактно $\Leftrightarrow$ 
     \begin{enumerate}
         \item $\Phi$ -- ограниченное в $C(K)$ 
         \item $\Phi$ -- равностепенно непрерывно ($\Phi \in EC$ equicontinuous)
@@ -310,16 +310,16 @@
     $\Leftarrow$ \\
     $\Phi$ -- ограничено $\Rightarrow \, \exists M > 0: f \in \Phi \Rightarrow ||f|| \leq M \Rightarrow |f(x)| \leq M \, \forall x \in K$.
     Надо по определению построить конечную $\varepsilon$-сеть в множестве непрерывных функций. Но мы воспользуемся двумя облегчающими хитростями:
-    1. $\Phi \subset C(K)$, а $C(K) \subset m(K)$, и
+    1. $\Phi \subseteq C(K)$, а $C(K) \subseteq m(K)$, и
     если множество имеет $\varepsilon$-сеть в большем пространстве, то в меньшем и подавно. Более того, сеть можно построить из элементов меньшего множества. Мы выберем ограниченные функции.
     2. выберем относительно компактную $\varepsilon$-сеть в $m(K)$ вместо конечной в $C(K)$, и этого будет достаточно.
-    \[ \varepsilon > 0 \quad \Phi \subset C(K) \subset m(K) = \{ f: K \rightarrow \bC, \sup_{x \in K} |f(x)| < + \infty \} \]
+    \[ \varepsilon > 0 \quad \Phi \subseteq C(K) \subseteq m(K) = \{ f: K \rightarrow \bC, \sup_{x \in K} |f(x)| < + \infty \} \]
     
     \begin{gather*}
         \varepsilon > 0 \quad \exists \delta \text{ из определения } (EC) \\
         \text{ применим к этой парочке лемму о разбиении}(K, \rho), \delta > 0  \\
         \exists \seq{C_j}^n_{j=1}, \diam C_j < \delta, K = \bigcup^n_{j=1} C_j, C_j \bigcap C_i = \varnothing (j \ne i), C_j \ne \varnothing \\
-        \Psi = \left\{ g(x) = \sum^n_{j=1} y_j \chi_{C_j} (x)  \right\} \subset m(K), y_j \in \bC, 1 \leq j \leq n \\
+        \Psi = \left\{ g(x) = \sum^n_{j=1} y_j \chi_{C_j} (x)  \right\} \subseteq m(K), y_j \in \bC, 1 \leq j \leq n \\
         g \in \Psi, ||g||_\infty = \sup_{x \in K} |g(x)| = \max_{1 \leq j \leq n} |y_j| = ||y||_{l^\infty_n}, y = (y_1, \ldots, y_n) \\
         F: l^\infty_n \rightarrow \Psi, F(y) = \sum^n_{j=1} y_j \chi_{C_j}(x)
     \end{gather*}
@@ -367,7 +367,7 @@
 
 
 \begin{theoremwobox}[достаточные условия равностепенной непрерывности]
-    $(K, \rho)$ -- компакт, $\Phi \subset C(K)$.
+    $(K, \rho)$ -- компакт, $\Phi \subseteq C(K)$.
     Сначала какие-то абстрактные множества, потом будут более конкретные.
     \begin{enumerate}
         \item Если $\exists M > 0, \alpha > 0, \beta > 0$ такие что 
@@ -375,12 +375,12 @@
             \forall f \in \Phi, (\forall x,y \in K \rho(x,y) < \beta) \Rightarrow |f(x) - f(y)| \leq M(\rho(x,y))^\alpha \\
             \Rightarrow \Phi \in (EC)
         \end{multline*}
-        \item $C[a,b], \Phi \subset C[a,b]$, пусть $\exists L > 0$ 
+        \item $C[a,b], \Phi \subseteq C[a,b]$, пусть $\exists L > 0$ 
         \[ \forall f \in \Phi \, \exists f^\prime(x), x \in (a,b), |f^\prime(x)| \leq L \Rightarrow \Phi \in (EC) \]
-        \item чуть более общий случай. $K \subset G \subset \bR^n$, $K$ -- компакт, $G$ -- открытое.
+        \item чуть более общий случай. $K \subseteq G \subseteq \bR^n$, $K$ -- компакт, $G$ -- открытое.
         \[ \exists L > 0 : \forall f \in \Phi, \exists \left| \frac{\partial f}{\partial x_j}  (x) \right| \leq L (1 \leq j \leq n), \forall x \in G \,  \Rightarrow \Phi \in (EC)  \] 
         \item про аналитические функции. предполагать можно будет гораздо меньшее. 
-        $K \subset G \subset \bC$, $G$ -- открытое, $K$ -- компакт. 
+        $K \subseteq G \subseteq \bC$, $G$ -- открытое, $K$ -- компакт. 
         \[ \exists L > 0, f \in \Phi, f \text{ аналитическая в } G, \exists f^\prime(x), \underbrace{|f(x)|}_{\text{ТУТ}} \leq L, \forall x \in G \] 
     \end{enumerate}
         ТУТ НЕ ПРОИЗВОДНАЯ, НА ЭКЗАМЕНЕ ЧАСТО ОШИБАЮТСЯ!!!!
@@ -399,7 +399,7 @@
 
 Будем сводить остальные доказательства к первому пункту, находя $M, \alpha, \beta$. Второй пункт теперь совсем лёгкий. 
 \begin{proof}[2]
-    $\Phi \subset C[a,b], \, x,y \in [a,b], f \in \Phi$. Для оценки разности $f(x) - f(y)$ воспользуемся теоремой Лагранжа. 
+    $\Phi \subseteq C[a,b], \, x,y \in [a,b], f \in \Phi$. Для оценки разности $f(x) - f(y)$ воспользуемся теоремой Лагранжа. 
     \begin{multline*}
         f(x) - f(y) = f^\prime(c)(x-y) \Rightarrow |f(x) - f(y)| \leq |f(c)||x-y| \leq L|x-y| \\
         M = L, \alpha = 1, (\beta - \forall) \stackrel{1}{\Rightarrow} \Phi \in (EC)
@@ -407,7 +407,7 @@
 \end{proof}
 
 \begin{proof}[3]
-    Пусть $z, y \in K$ такие что $[z,y] \subset G, f \in \Phi$ 
+    Пусть $z, y \in K$ такие что $[z,y] \subseteq G, f \in \Phi$ 
 Оценим разность $f(y) - f(z)$. 
     \begin{gather*}
         \Gamma: [0,1] \rightarrow [y,z] \\
@@ -422,9 +422,9 @@
 
     \begin{gather*}
         x_0 \notin F \Rightarrow \rho(x_0, F) > 0, r := \rho(x_0, F) \\
-        \forall x \in K \, B_r(x) \subset G, \beta = r \\
-        \rho(x,y) < r \Rightarrow y \in B_r(x) \subset G \Rightarrow \\
-        \text{ отрезок } [x,y] B_r(x) \subset G \\
+        \forall x \in K \, B_r(x) \subseteq G, \beta = r \\
+        \rho(x,y) < r \Rightarrow y \in B_r(x) \subseteq G \Rightarrow \\
+        \text{ отрезок } [x,y] B_r(x) \subseteq G \\
         \Rightarrow |f(x) - f(y)| \leq L \sqrt{n} \rho(x,y)
     \end{gather*}
     $z$ и $y$, которые с самого начала были выбраны вместо $x$ и $y$, чтобы не смущаться из-за $dx$, обратно превратились в $x$ и $y$, все же поняли? \\
@@ -437,8 +437,8 @@
 \end{figure}
 
 \begin{proof}[4]
-    Букву $r$, которую мы нашли в предыдущем пункте, будем изо всех сил использовать. $K \subset G \subset \bC$. В 3 пункте выяснили, что 
-    $\exists r > 0: B_r(x) \subset G \, \forall x \in K, \beta = \frac{r}{3}$.
+    Букву $r$, которую мы нашли в предыдущем пункте, будем изо всех сил использовать. $K \subseteq G \subseteq \bC$. В 3 пункте выяснили, что 
+    $\exists r > 0: B_r(x) \subseteq G \, \forall x \in K, \beta = \frac{r}{3}$.
     \begin{gather*}
         x,y \in K, \rho(x,y) < \beta, \gamma = \{ \zeta \in \bC: |x - \zeta| = 2 \beta \} \\
         f \in \Phi
@@ -457,14 +457,14 @@
 \end{proof}
 Перед тем, как мы покинем относительно компакты, пара упражнений, которые на экзамене спрашивали в качестве задачи на 5.
 \begin{statement}
-    $1 \leq p < + \infty$. $\Phi \subset l^p, \Phi$ -- относительно компактно $\Leftrightarrow$ 
+    $1 \leq p < + \infty$. $\Phi \subseteq l^p, \Phi$ -- относительно компактно $\Leftrightarrow$ 
     \begin{enumerate}
         \item $\Phi$ -- ограничено в $l^p$ \\
         \item $\forall \varepsilon > 0 \, \exists N \in \bN : \forall x = \seq{x_j}^\infty_{j=1} \in \Phi, \left( \sum^\infty_{j=N+1} |x_j|^p \right)^{\frac{1}{p}} < \varepsilon$ 
     \end{enumerate}
 \end{statement}
 \begin{statement}
-    $\Phi \subset C_0, \Phi$  -- относительно компактно $\Leftrightarrow$ 
+    $\Phi \subseteq C_0, \Phi$  -- относительно компактно $\Leftrightarrow$ 
     \begin{enumerate}
         \item $\Phi$ -- ограничено \\
         \item $\varepsilon > 0 \, \exists N \in \bN : \forall x \in \Phi \quad \sup_{j \geq N+1} |x_j| < \varepsilon $
